@@ -1,0 +1,71 @@
+Product -> CRUD 
+
+0)	open mysql
+	create database 21springr;
+	use 21springr;
+
+1) create table product(
+	productId integer primary key auto_increment,
+	productName varchar(40),
+	price float,
+	qty integer
+	);
+	desc product;
+
+2) ProductBean	
+	productId,productName,price,qty;
+	getters setters 
+
+3) Controller 
+	ProductController ->@Controller 
+	3.1) newproduct() -> this method will open form for NewProduct.jsp
+	3.2) NewProduct.jsp 
+		spring form 
+	3.3) bind error and validation login in controller - saveProduct()
+
+4) establish db connection 
+	4.1) add spring-jdbc in pom.xml 
+	4.2) add mysql-connector in pom.xml
+	4.3) configure DriverManagerDataSource  [ spring.xml ]
+	4.4) configure JdbcTemplate [ spring.xml ] 
+
+
+5) create product dao 
+	5.1) @Autowired [ JdbcTempalte as instance variable ] 
+	5.2) create insertPorudct method
+	
+6) call insert product in controller 
+	6.1) @Autowired ProductDao in controller
+	6.2) if no error in validation then call insertProduct
+	6.3) return any jsp 
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

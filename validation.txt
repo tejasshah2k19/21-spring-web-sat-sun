@@ -1,16 +1,16 @@
 1) add hibernate-validator jar 
-2) apply validation in bean 
-3) validate your data in controller 
+2) apply validation in bean -> @NotNull @Empty 
+3) validate your data in controller  @Valid   BindingResult 
 4) spring:form 
 	1) validation error message 
 	2) filled -- present
-   4.1) add tld in jsp 
+   4.1) add tld in jsp <%@taglib uri="" prefix="s" %>
    4.2) use s:input and path in input 
    4.3) add modelAttribute in form also create blank object 
    4.4) also pass user object from controller (saveuser)
    4.5) add modelAttriubte("user) 
-5) add s:errors in jsp 
-5) add css for red color, also add message in bean for custom message 
+5) add s:errors in jsp [ for error message ]  
+6) add css for red color, also add message in bean for custom message 
 
 		
 
