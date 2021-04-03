@@ -2,8 +2,11 @@ package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,19 +20,26 @@ public class UserController {
 	// method --> load signup page
 
 	@GetMapping("/signup")
-	public String loadSignup() {
+	public String loadSignup(Model model) {
+		model.addAttribute("user",new UserBean());
 		return "Signup";// this line will tell ioc to render Signup.jsp
 	}
 
 	@PostMapping("/saveuser")
-	public String saveUser(UserBean user) {
-		// set param
-		// user.setFirstName(request.getParameter("firstName")) ;
+	public String saveUser(@ModelAttribute("user") @Valid UserBean user, BindingResult result, Model model) {
 
-		System.out.println("Save user Called..........");
-		System.out.println(user.getEmail());
-		System.out.println(user.getFirstName());
-		return "Home";
+		if (result.hasErrors()) {
+			model.addAttribute("user",user);
+			return "Signup";
+		} else {
+			// forward
+			model.addAttribute("user", user);// key -> data name || value-->actual data
+			System.out.println("Save user Called..........");
+			System.out.println(user.getEmail());
+			System.out.println(user.getFirstName());
+			return "Home";
+
+		}
 	}
 
 	// insert method => map

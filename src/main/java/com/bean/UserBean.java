@@ -1,8 +1,17 @@
 package com.bean;
 
-public class UserBean{
+import org.hibernate.validator.constraints.NotEmpty;
+
+public class UserBean {
+
+	@NotEmpty(message="Please Enter FirstName")
+	private String firstName;
+
+	@NotEmpty(message="Please Enter Email")
+	String email;
+
 	
-	private String firstName,email,password,lastName;
+	String password, lastName;
 
 	public String getFirstName() {
 		return firstName;
@@ -35,7 +44,5 @@ public class UserBean{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
-	
+
 }
