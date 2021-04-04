@@ -11,6 +11,9 @@ Email : ${user.email}<br>
 FristName : ${user.firstName}
 <br><br>
 
-<a href="calc">Calc</a>
+<a href="calc">Calc</a><br>
+
+<a href="newproduct">Add New Product</a><br>
+<a href="listproducts">List aLL Products</a><br>
 </body>
 </html>

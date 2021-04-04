@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +23,7 @@ public class ProductController {
 
 	@Autowired
 	ProductDao productDao;
-    
-	
-	
-	
+
 	@GetMapping("/newproduct")
 	public String newProduct(Model model) {
 		model.addAttribute("product", new ProductBean());
@@ -42,7 +42,24 @@ public class ProductController {
 			productDao.insertProduct(productBean);
 			return "Home";
 		}
+	}
 
+	@GetMapping("/listproducts")
+	public String listProducts(Model model) {
+
+		List<ProductBean> products = productDao.getAllProducts();
+		model.addAttribute("products", products);
+		return "ListProduct";
+	}
+
+	@GetMapping("/deleteproduct")
+	public String deleteProduct(HttpServletRequest request) {
+
+		int productId = Integer.parseInt(request.getParameter("productId"));
+
+		productDao.deleteProduct(productId);
+
+		return "redirect:/listproducts";
 	}
 
 }
