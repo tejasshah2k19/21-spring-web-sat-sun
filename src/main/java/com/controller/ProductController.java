@@ -62,4 +62,31 @@ public class ProductController {
 		return "redirect:/listproducts";
 	}
 
+	@GetMapping("/editproduct")
+	public String editProduct(Model model, HttpServletRequest request) {
+
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		ProductBean product = productDao.getProductByProductId(productId);
+		model.addAttribute("product", product);
+
+		return "EditProduct";
+	}
+
+	@PostMapping("/updateproduct")
+	public String updateProduct(@ModelAttribute("product") ProductBean product) {
+
+			productDao.updateProduct(product);
+		
+		return "redirect:/listproducts";
+	}
+
 }
+
+
+
+
+
+
+
+
+

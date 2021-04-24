@@ -29,7 +29,13 @@
 				<td>${p.productName}</td>
 				<td>${p.price}</td>
 				<td>${p.qty}</td>
-				<td><a href="deleteproduct?productId=${p.productId}">Delete</a></td>
+				<td><a href="deleteproduct?productId=${p.productId}">Delete</a>
+					|
+					<a href="editproduct?productId=${p.productId}">Edit</a>	
+				
+				</td>
+				
+				
 			</tr>
 		</g:forEach>
 
