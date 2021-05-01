@@ -1,17 +1,19 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.UserBean;
+import com.service.ImageService;
 
 @Controller
 public class UserController {
@@ -19,9 +21,12 @@ public class UserController {
 	// instead of class we are suppose to map methods....
 	// method --> load signup page
 
+	@Autowired
+	ImageService imageService;
+
 	@GetMapping("/signup")
 	public String loadSignup(Model model) {
-		model.addAttribute("user",new UserBean());
+		model.addAttribute("user", new UserBean());
 		return "Signup";// this line will tell ioc to render Signup.jsp
 	}
 
@@ -29,7 +34,7 @@ public class UserController {
 	public String saveUser(@ModelAttribute("user") @Valid UserBean user, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("user",user);
+			model.addAttribute("user", user);
 			return "Signup";
 		} else {
 			// forward
@@ -40,6 +45,21 @@ public class UserController {
 			return "Home";
 
 		}
+	}
+
+	@GetMapping("/uploadprofile")
+	public String uploadProfile() {
+		return "AddProfilePic";
+	}
+
+	// commons-fileupload
+	// commons-io
+	@PostMapping("/saveprofile")
+	public String saveProfilePic(@RequestParam("profilepic") MultipartFile file,Model model) {
+		//
+		imageService.uploadImage(file);
+		model.addAttribute("msg","File uploaded....");
+		return "AddProfilePic";
 	}
 
 	// insert method => map

@@ -37,7 +37,6 @@ public class ProductDao {
 	public ProductBean getProductByProductId(int productId) {
 		ProductBean productBean = stmt.queryForObject("select * from product where productId = ? ",
 				new Object[] { productId }, new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
-
 		return productBean;
 	}
 

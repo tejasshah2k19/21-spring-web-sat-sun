@@ -1,15 +1,20 @@
 package com.bean;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserBean {
 
+	
 	@NotEmpty(message="Please Enter FirstName")
 	private String firstName;
 
 	@NotEmpty(message="Please Enter Email")
 	String email;
 
+	@Length(min=10,max=10,message="Contact Number length should be 10 exact")
+	int contact;
+	
 	
 	String password, lastName;
 

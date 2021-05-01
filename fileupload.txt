@@ -1,0 +1,12 @@
+1) create jsp with input type file and enctype in form -- AddProfilePic.jsp 
+2) map that jsp with 1 url -- uploadprofile 
+3) create 1 method which has all logic for file uploading 
+	which will call by your jsp [AddProfilePic.jsp] 
+4) configuration for file uploading.
+	4.1	add commons-io and commons-fileupload jar in your project [maven]
+	4.2	create bean CommonsMultiPartResolver in pom.xml 
+	
+5) create 1 service for file upload , create uploadfile method in service 
+6) --logic--uploadfile 
+
+

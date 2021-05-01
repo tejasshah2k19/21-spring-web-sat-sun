@@ -39,7 +39,27 @@
 	</bean>
 
 
-	<bean id="productDao" class="com.dao.ProductDao"/>
+	<bean id="productDao" class="com.dao.ProductDao" />
+
+
+	<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="500000"></property>
+
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </beans>

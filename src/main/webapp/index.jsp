@@ -5,7 +5,8 @@
 <a href="signup">Signup</a>
 <br>
 <a href="newproduct">Add Product</a>
-
+<br>
+<a href="uploadprofile">Uplaod image</a>
 
 
 
