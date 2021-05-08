@@ -10,3 +10,6 @@
 6) --logic--uploadfile 
 
 
+
+read all bytes from file 1 
+write all bytes to file 2  
