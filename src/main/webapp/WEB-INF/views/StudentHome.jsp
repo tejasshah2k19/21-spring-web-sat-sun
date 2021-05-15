@@ -8,6 +8,8 @@
 <body>
 
 	Welcome, ${student.firstName}
+	
+	<img src="${pageContext.request.contextPath}${student.profilePicPath}" height="200px" width="200px"></img>
 	<br>
 	<br>
 
@@ -18,8 +20,12 @@
 	<br>
 	<a href="listproducts">List aLL Products</a>
 	<br>
+	<a href="uploadstudentprofile">Upload Profile Pic</a>
+	<br>
 	<a href="logout">Logout</a>
 	<br>
-
+	${msg}
+	<Br>
+	${pageContext.request.contextPath}${student.profilePicPath}
 </body>
 </html>

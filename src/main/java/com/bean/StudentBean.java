@@ -8,6 +8,17 @@ public class StudentBean {
 	String email, password;
 	String profile;
 
+	String profilePicPath;
+	
+	
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
+	}
+
 	public int getStudentId() {
 		return studentId;
 	}

@@ -21,4 +21,9 @@ public class StudentDao {
 
 	}
 
+	public void updateProfilePath(int studentId, String path) {
+
+		stmt.update("update student set profilePicPath = ? where studentId = ?",path,studentId);
+	}
+
 }

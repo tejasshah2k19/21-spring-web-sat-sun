@@ -19,8 +19,13 @@ public class SessionController {
 	SessionDao sessionDao;
 
 	@GetMapping("/login")
-	public String login() {
-		return "Login";
+	public String login(HttpSession session) {
+		//
+		if (session.getAttribute("student") == null) {
+			return "Login";
+		} else {
+			return "StudentHome";
+		}
 	}
 
 	@PostMapping("/authenticate")
@@ -33,6 +38,7 @@ public class SessionController {
 			model.addAttribute("error", "Invalid credentials..");
 			return "Login";
 		} else {
+			System.out.println("session controller ==> "+student);
 			session.setAttribute("student", student);
 			return "StudentHome";
 		}
