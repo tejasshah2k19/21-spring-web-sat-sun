@@ -14,8 +14,8 @@
 	<a href="newstudent">NewStudent--Signup</a><br>
 	<a href="login">Student Login</a><br>
 
-
-
+	<br>
+	<a href="getemaildetail">Send Mail to User</a>
 
 
 

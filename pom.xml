@@ -96,7 +96,13 @@
 			<version>1.4</version>
 		</dependency>
 
-
+		<!-- mail send -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<!-- mail send -->
 	</dependencies>
 	<build>
 		<finalName>spring-web-21-r</finalName>
